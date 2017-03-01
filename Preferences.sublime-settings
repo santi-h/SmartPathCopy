@@ -1,0 +1,7 @@
+{
+  "smart_path_copy": [
+    ["_spec\\.rb$", "rspec $filepath:$line_number"],
+    ["db/migrate/(\\d+)[^\\/]+\\.rb$", "rake db:migrate:up VERSION=$1"],
+    ["lib/tasks/([^\\/]+)\\.rake$", "rake $1"]
+  ]
+}

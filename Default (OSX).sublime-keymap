@@ -1,0 +1,3 @@
+[
+  { "keys": ["super+shift+c"], "command": "smart_path_copy"},
+]
