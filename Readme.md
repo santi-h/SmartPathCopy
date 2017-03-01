@@ -28,6 +28,13 @@ So now you have to go back to the console and run it from there anyways. If you 
 Recommended way is using [PackageControl](http://wbond.net/sublime_packages/package_control/installation) package.
 
 ### Usage
+Hit `super`+`shift`+`c` to send the relevant command to the clipboard. By default it will build the following commands:
+- For files ending in `_spec.rb`: `rspec <file>:<line_number>`
+- For files in `db/migrate`: `rake db:migrate:up VERSION=<migration_version>`
+- For files in `lib/tasks`: `rake <task_name>`
+
+
+### Configuration
 The default configuration is:
 ```python
 {
