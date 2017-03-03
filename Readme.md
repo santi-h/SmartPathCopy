@@ -5,7 +5,7 @@ For example, if you're making changes to `path/to/test.rb`, chances are you're g
 
 Similarly, if you're writing a migration on rails like `db/migrate/20150406132142_add_authentication_token_to_users.rb`, chances are that when you head over to the console, you just want to run either `rake db:migrate` or `rake db:migrate:up VERSION=20170213214913`
 
-### Case in point
+### Case scenario
 You're in the zone developing and writing tests like it's nobody's business.
 You think your test is ready and want to quickly run it, but you don't have a [TDD](http://asquera.de/blog/2016-03-31/tdd-with-guard) mechanism in place or you haven't started it.
 You head over to the console to run the test.
@@ -24,7 +24,7 @@ You could use the [RSpec sublime package](https://packagecontrol.io/packages/RSp
 So now you have to go back to the console and run it from there anyways. If you forget to `continue` or kill the spec in the console, every test you run in sublime with RSpec will hang. Hopefully some day [RSpec will support pry](https://github.com/maltize/sublime-text-2-ruby-tests/issues/227), until then I'll stick to the console.
 
 
-### Instalation
+### Installation
 Recommended way is using [PackageControl](http://wbond.net/sublime_packages/package_control/installation) package.
 
 ### Usage
@@ -38,7 +38,7 @@ Hit `super`+`shift`+`c` to send the relevant command to the clipboard. By defaul
 The default configuration is:
 ```python
 {
-  "smart_path_copy": [
+  "smart_path_copy_default_rules": [
     ["_spec\\.rb$",                     "rspec $filepath:$line_number"  ],
     ["db/migrate/(\\d+)[^\\/]+\\.rb$",  "rake db:migrate:up VERSION=$1" ],
     ["lib/tasks/([^\\/]+)\\.rake$",     "rake $1"                       ]
@@ -46,12 +46,13 @@ The default configuration is:
 }
 ```
 
-Each element in the `"smart_path_copy"` list consists of a regex expression and a command.
+Each element in the `"smart_path_copy_default_rules"` list consists of a regex expression and a command.
 The regex expression serves as a condition: If the file you're currently on satifies the condition (regex), then the command next to it will be copied to the clipboard when you hit `super`+`shift`+`c`.
 
 If no condition is satisfied, the whole path of the current file is copied to the clipboard.
 
 The default configuration is useful if you're developing in rails, but you can add your own configuration in `Sublime Text` > `Preferences` > `Settings`.
+If you want to override the default configuration, just add your own `"smart_path_copy_default_rules"`. If you want to keep the default configuration and add rules on top of it, use `"smart_path_copy_user_rules"`.
 
 Notice that you can add groups in the regexes and use them (as `$<group_number>`) in the command.
 
