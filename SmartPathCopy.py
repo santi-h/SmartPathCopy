@@ -5,7 +5,10 @@ class SmartPathCopyCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     current_filepath = self.view.file_name()
 
-    rules = self.view.settings().get('smart_path_copy') or []
+    user_rules = self.view.settings().get('smart_path_copy_user_rules') or []
+    default_rules = self.view.settings().get('smart_path_copy_default_rules') or []
+
+    rules = user_rules + default_rules
 
     subs = {
       'filepath': current_filepath,
